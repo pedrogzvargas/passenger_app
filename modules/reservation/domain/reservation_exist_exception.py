@@ -1,2 +1,0 @@
-class ReservationExistException(Exception):
-    pass

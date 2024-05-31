@@ -1,7 +1,7 @@
-reservation_app
+passenger_app
 =======================
 
-**reservation_appt** Es un proyecto hecho en Python y FastApi
+**passenger_app** Es un proyecto hecho en Python y FastApi
 
 
 Meta

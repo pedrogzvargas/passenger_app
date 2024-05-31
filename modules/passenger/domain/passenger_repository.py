@@ -1,7 +1,7 @@
 from uuid import UUID
 from abc import ABC
 from abc import abstractmethod
-from modules.reservation.domain.entity import Reservation
+from modules.passenger.domain.entity import Passenger
 
 
 class PassengerRepository(ABC):
@@ -25,7 +25,7 @@ class PassengerRepository(ABC):
         pass
 
     @abstractmethod
-    def create(self, reservation: Reservation):
+    def create(self, passenger: Passenger):
         """create passengers"""
         pass
 
