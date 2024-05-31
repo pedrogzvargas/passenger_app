@@ -21,7 +21,11 @@ Componentes del proyecto
 Uso con docker y docker compose
 -----
 
-Para construir el proyecto con  ``docker-compose`` debemos poner los valore correspondiente en ``.env``
+Este es un servicio complementario del proyecto [reservation_app](https://github.com/pedrogzvargas/reservation_app),
+por lo tanto se ocupará la misma intancia de rabbit de ese proyecto, debido a que consumen colas de mensaje del mismo entono,
+dentro del ``docker-compose`` se hace referencia a una red para que los contenedores se puedan ver.
+
+Para construir el proyecto con  ``docker-compose`` debemos poner los valores correspondiente en ``.env``
 
     POSTGRES_DB=<value>
     POSTGRES_USER=<value>
@@ -93,3 +97,7 @@ En el repositorio ya existe un archivo con 7000 usuarios en el folder ``csv``, p
 Podemos cargar los usuarios a la base de datos con el siguiente comando, este usa el archivo creado previamente en el folder ``csv``
 
     $ python modules/shared/infraestructure/load_passenger_data_to_db.py
+
+Se utlizó Kombu como instancia para el consumo de mensajes de Rabbit, existe un script que corre el consumer:
+
+    $ python app/consumer.py
