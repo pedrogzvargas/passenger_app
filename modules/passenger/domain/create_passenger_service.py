@@ -38,7 +38,7 @@ class CreatePassengerService:
         """
         function responsible to create a passanger event body
         """
-        dict_body = dict(event_name="reservation_app.passenger_created")
+        dict_body = dict(event_name="passenger_app.passenger_created")
         dict_body.update(asdict(passenger))
         json_body = json.dumps(dict_body, cls=UUIDEncoder)
         return json_body

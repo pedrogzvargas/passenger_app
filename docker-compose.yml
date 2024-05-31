@@ -14,7 +14,9 @@ services:
     volumes:
       - .:/app
     ports:
-      - 8000:8000
+      - 8001:8000
+    networks:
+      - reservation-app-net
     command: /start_app.sh
 
   worker-app:
@@ -22,6 +24,8 @@ services:
       context: .
       dockerfile: compose/fast_api/worker/Dockerfile
     container_name: "traxion-passenger-worker-app"
+    networks:
+      - reservation-app-net
     volumes:
       - .:/app
     command: /start_worker.sh
@@ -29,6 +33,8 @@ services:
   postgres:
     image: postgres:12.3
     container_name: "traxion-passenger-db"
+    networks:
+      - reservation-app-net
     volumes:
       - ${POSTGRES_DATA}:/var/lib/postgresql/data:Z
     env_file:
@@ -40,3 +46,7 @@ services:
       retries: 120
     ports:
       - "5434:5432"
+
+networks:
+  reservation-app-net:
+    external: true

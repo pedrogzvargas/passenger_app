@@ -3,6 +3,6 @@ from modules.passenger.infraestructure import PassengerPatchedSubscriber
 
 
 message_handler = {
-    "passenger_app.passenger_created": PassengerCreatedSubscriber,
-    "passenger_app.passenger_patched": PassengerPatchedSubscriber,
+    "reservation_app.passenger_created": PassengerCreatedSubscriber,
+    "reservation_app.passenger_patched": PassengerPatchedSubscriber,
 }
